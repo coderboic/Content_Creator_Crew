@@ -1,0 +1,84 @@
+research_trends:
+  description: >
+    Research trending topics in the {niche} niche for a {content_type} format.
+    Target audience: {target_audience}.
+
+    Find 3-5 topics that are:
+    1. Currently trending or have viral potential
+    2. Not oversaturated with competition
+    3. Aligned with the creator's brand
+
+    For each topic, explain WHY it's a good choice with supporting evidence.
+  expected_output: >
+    A ranked list of 3-5 content ideas with:
+    - Topic title
+    - Why it's trending
+    - Estimated competition level
+    - Unique angle suggestion
+  agent: trend_researcher
+  output_file: output/trending_topics.md
+
+write_script:
+  description: >
+    Write a complete {content_type} script for the top trending topic.
+
+    The script should include:
+    - A hook (first 15-30 seconds) that creates curiosity
+    - Clear introduction of what the video covers
+    - Main content with logical flow and transitions
+    - Retention techniques (pattern interrupts, questions, teasers)
+    - Call-to-action (subscribe, comment, etc.)
+    - Strong outro
+
+    Target length: {video_length} minutes
+    Tone: {tone}
+  expected_output: >
+    A complete, ready-to-record script with timestamps and speaker directions.
+  agent: script_writer
+  context:
+    - research_trends
+  output_file: output/script.md
+
+optimize_seo:
+  description: >
+    Create SEO-optimized metadata for the video/blog post.
+
+    Research relevant keywords and create:
+    1. Primary keyword (highest search volume, reasonable competition)
+    2. Secondary keywords (5-10 related terms)
+    3. Optimized title (include primary keyword, under 60 chars)
+    4. Description (2000 chars with keywords, timestamps, links)
+    5. Tags (30 relevant tags)
+    6. Hashtags (3-5 for YouTube)
+  expected_output: >
+    Complete SEO package with all metadata ready to copy-paste.
+  agent: seo_optimizer
+  context:
+    - write_script
+  output_file: output/seo_metadata.md
+
+create_titles_thumbnails:
+  description: >
+    Create scroll-stopping titles and thumbnail concepts.
+
+    Generate:
+    1. 5 title variations using different psychological triggers:
+       - Curiosity gap
+       - Numbers/lists
+       - Emotional hook
+       - Controversial/bold statement
+       - Question format
+
+    2. 3 thumbnail concepts with detailed descriptions:
+       - Main visual element
+       - Text overlay (max 3-4 words)
+       - Color scheme
+       - Facial expression (if applicable)
+       - Composition notes
+  expected_output: >
+    5 title options and 3 detailed thumbnail concepts with rationale.
+  agent: thumbnail_title_strategist
+  context:
+    - write_script
+    - optimize_seo
+  output_file: output/titles_thumbnails.md
