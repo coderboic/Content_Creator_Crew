@@ -24,6 +24,14 @@ crewai install
 GEMINI_API_KEY=your_key
 SERPER_API_KEY=your_key
 
+# Configure input parameters in main.py
+# Edit the inputs dictionary according to your needs:
+# - content_type: Type of content (e.g., "YouTube video")
+# - target_audience: Your audience (e.g., "Tech enthusiasts")
+# - video_length: Duration in minutes (e.g., "10")
+# - tone: Content tone (e.g., "conversational")
+# - niche: Content niche (e.g., "AI & Technology")
+
 # Run
 crewai run
 ```
@@ -47,4 +55,3 @@ Generates content in `output/` folder:
 - Complete video script
 - SEO metadata & tags
 - Title variations & thumbnail concepts
-
