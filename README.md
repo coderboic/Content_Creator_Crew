@@ -1,54 +1,50 @@
-# ContentCrew Crew
+# Content Creator Crew 🎬
 
-Welcome to the ContentCrew Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+AI-powered multi-agent system for automated YouTube content creation using [CrewAI](https://crewai.com).
 
-## Installation
+## What it does
 
-Ensure you have Python >=3.10 <3.14 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+4 AI agents collaborate to create complete YouTube content packages:
 
-First, if you haven't already, install uv:
+| Agent | Role |
+|-------|------|
+| 🔍 Trend Researcher | Finds viral trending topics |
+| ✍️ Script Writer | Writes engaging video scripts |
+| 📈 SEO Optimizer | Creates optimized metadata & tags |
+| 🎨 Thumbnail Strategist | Generates title & thumbnail concepts |
+
+## Quick Start
 
 ```bash
+# Install dependencies
 pip install uv
-```
-
-Next, navigate to your project directory and install the dependencies:
-
-(Optional) Lock the dependencies and install them by using the CLI command:
-```bash
 crewai install
-```
-### Customizing
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
+# Add API keys to .env
+GEMINI_API_KEY=your_key
+SERPER_API_KEY=your_key
 
-- Modify `src/content_crew/config/agents.yaml` to define your agents
-- Modify `src/content_crew/config/tasks.yaml` to define your tasks
-- Modify `src/content_crew/crew.py` to add your own logic, tools and specific args
-- Modify `src/content_crew/main.py` to add custom inputs for your agents and tasks
-
-## Running the Project
-
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
-
-```bash
-$ crewai run
+# Run
+crewai run
 ```
 
-This command initializes the content_crew Crew, assembling the agents and assigning them tasks as defined in your configuration.
+## Project Structure
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
+```
+src/content_crew/
+├── config/
+│   ├── agents.yaml    # Agent definitions
+│   └── tasks.yaml     # Task definitions
+├── crew.py            # Crew orchestration
+├── main.py            # Entry point
+└── tools/             # Custom tools
+```
 
-## Understanding Your Crew
+## Output
 
-The content_crew Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
+Generates content in `output/` folder:
+- Trending topics analysis
+- Complete video script
+- SEO metadata & tags
+- Title variations & thumbnail concepts
 
-## Support
-
-For support, questions, or feedback regarding the ContentCrew Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
-
-Let's create wonders together with the power and simplicity of crewAI.
